@@ -21,10 +21,20 @@ public class MotoristaView {
 		Motorista motorista = new Motorista(20, "Lucas da Silva Junior",
 				new GregorianCalendar(2020, 4, 20), null, null);
 				
-		motoristaDAO.cadastrar(motorista);
+		
+		try {
+			motoristaDAO.cadastrar(motorista);
+			motoristaDAO.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 		List<Motorista> motoristas = motoristaDAO.buscaMotoristaPorParteNome("Luc");
 		
 		motoristas.forEach(moto -> System.out.println(moto.getNome()));
+		
+		em.close();
+		factory.close();
 	}
 }
