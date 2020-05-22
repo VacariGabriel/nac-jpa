@@ -5,16 +5,16 @@ import javax.persistence.Persistence;
 
 public class EntityManagerFactorySingleton {
 
-	//atributo estático que possui o objeto único
+	//atributo estatico que possui o objeto unico
 	private static EntityManagerFactory fabrica;
 	
 	//construtor privado
 	private EntityManagerFactorySingleton() {}
 	
-	//método estático que retorna a única instancia
+	//metodo estatico que retorna a unica instancia
 	public static EntityManagerFactory getInstance() {
 		if (fabrica == null) {
-			fabrica = Persistence.createEntityManagerFactory("CLIENTE_ORACLE");
+			fabrica = Persistence.createEntityManagerFactory("oracle");
 		}
 		return fabrica;
 	}

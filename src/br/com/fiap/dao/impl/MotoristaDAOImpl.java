@@ -17,8 +17,8 @@ public class MotoristaDAOImpl extends GenericDAOImpl<Motorista, Long> implements
 	@Override
 	public List<Motorista> buscaMotoristaPorParteNome(String parteNome) {
 		TypedQuery<Motorista> query =  em.createQuery(
-				"from Motorista m where m.nome like :parteNome", Motorista.class);
-		query.setParameter("parteNome", "%" + parteNome + "%");
+				"from Motorista m where m.nome like :pn", Motorista.class);
+		query.setParameter("pn", "%" + parteNome + "%");
 		query.setMaxResults(50);		
 		return query.getResultList();
 	}
