@@ -1,6 +1,8 @@
 package br.com.fiap.view;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -27,6 +29,13 @@ public class CorridaView {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		Calendar inicio = new GregorianCalendar(2020, 4, 24);
+		Calendar fim = new GregorianCalendar(2020, 4, 25);
+		
+		List<Corrida> corridas = corridaDAO.buscaPorIntervaloTempo(inicio, fim);
+		
+		corridas.forEach(corridinhaMarota -> System.out.println(corridinhaMarota.getData()));
 		
 		em.close();
 		factory.close();
