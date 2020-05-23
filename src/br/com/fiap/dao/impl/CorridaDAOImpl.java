@@ -24,4 +24,11 @@ public class CorridaDAOImpl extends GenericDAOImpl<Corrida, Integer> implements 
 				.setMaxResults(30)
 				.getResultList();
 	}
+	
+	@Override
+	public List<Corrida> buscarPorTodasCorridasDoMotorista(Motorista motorista) {
+		TypedQuery<Corrida> query = em.createQuery("from Corrida c where c.motorista = :m", Corrida.class);
+		query.setParameter("m", motorista);
+		return query.getResultList();
+	}
 }

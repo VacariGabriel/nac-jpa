@@ -10,6 +10,7 @@ import javax.persistence.EntityManagerFactory;
 import br.com.fiap.dao.CorridaDAO;
 import br.com.fiap.dao.impl.CorridaDAOImpl;
 import br.com.fiap.entity.Corrida;
+import br.com.fiap.entity.Motorista;
 import br.com.fiap.singleton.EntityManagerFactorySingleton;
 
 public class CorridaView {
@@ -36,6 +37,24 @@ public class CorridaView {
 		List<Corrida> corridas = corridaDAO.buscaPorIntervaloTempo(inicio, fim);
 		
 		corridas.forEach(corridinhaMarota -> System.out.println(corridinhaMarota.getData()));
+		
+		//Buscar por todas as corridas de um motorista
+		Motorista motorista = new Motorista(20, "Lucas da Silva Junior",
+				new GregorianCalendar(2020, 4, 20), null, null);
+		
+		Corrida corrida3 = new Corrida("Av. Paulista", "Consolacao", new GregorianCalendar(2020, 4, 20),
+				12f, motorista, null, null);
+		
+		try {
+			corridaDAO.cadastrar(corrida3);
+			corridaDAO.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		List<Corrida> corridasDoMotorista = corridaDAO.buscarPorTodasCorridasDoMotorista(motorista);
+		
+		corridasDoMotorista.forEach(corridaDoMotorista -> System.out.println(corrida.getOrigem()));
 		
 		em.close();
 		factory.close();

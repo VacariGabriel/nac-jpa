@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import br.com.fiap.dao.MotoristaDAO;
+import br.com.fiap.entity.Corrida;
 import br.com.fiap.entity.Motorista;
 
 public class MotoristaDAOImpl extends GenericDAOImpl<Motorista, Long> implements MotoristaDAO {
