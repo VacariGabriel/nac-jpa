@@ -18,10 +18,10 @@ public class CorridaDAOImpl extends GenericDAOImpl<Corrida, Integer> implements 
 
 	@Override
 	public List<Corrida> buscaPorIntervaloTempo(Calendar inicio, Calendar fim) {
-		return em.createQuery("from Corrida where between :i and :f", Corrida.class)
+		return em.createQuery("from Corrida c where c.data between :i and :f", Corrida.class)
 				.setParameter("i", inicio)
 				.setParameter("f", fim)
+				.setMaxResults(30)
 				.getResultList();
 	}
-
 }
