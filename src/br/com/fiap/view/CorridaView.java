@@ -63,7 +63,6 @@ public class CorridaView {
 		System.out.println("Código do passageiro: "+ codigoPassageiro + ", quantidade de corridas: " + qtdeDeCorridaPorPassageiro);
 		
 		//6-Buscar por todas as corridas por parte do nome do passageiro
-		
 		System.out.println("\n6-Buscar por todas as corridas por parte do nome do passageiro");
 		String nomeDoPassageiro = "Pass";
 		List<Corrida> buscarPorNomePassageiro = corridaDAO.buscarPorParteDoNomeDoPassageiro(nomeDoPassageiro);
