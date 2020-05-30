@@ -13,4 +13,6 @@ public interface CorridaDAO extends GenericDAO<Corrida, Integer> {
 
 	long qtdeCorridaPorPasseiro(int codigo);
 
+	List<Corrida> buscarPorParteDoNomeDoPassageiro(String nome);
+
 }

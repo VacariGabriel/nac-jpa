@@ -38,4 +38,11 @@ public class CorridaDAOImpl extends GenericDAOImpl<Corrida, Integer> implements 
 				.setParameter("codigo", codigo)
 				.getSingleResult();
 	}
+
+	@Override
+	public List<Corrida> buscarPorParteDoNomeDoPassageiro(String nome) {
+		return em.createQuery("from Corrida c where passageiro.nome like :nome", Corrida.class)
+				.setParameter("nome", "%"+nome+"%")
+				.getResultList();
+	}
 }

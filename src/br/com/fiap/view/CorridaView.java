@@ -48,19 +48,26 @@ public class CorridaView {
 		List<Corrida> corridas = corridaDAO.buscaPorIntervaloTempo(inicio, fim);
 		
 		System.out.println("2-Buscar por todas as corridas por um intervalo de datas: ");
-		corridas.forEach(corridinhaMarota -> System.out.println("Origem: "+corridinhaMarota.getOrigem()));
+		corridas.forEach(item -> System.out.println("Origem: "+item.getOrigem()));
 		
 		//4-Buscar por todas as corridas de um motorista
 		List<Corrida> corridasDoMotorista = corridaDAO.buscarPorTodasCorridasDoMotorista(motorista);
 		
 		System.out.println("\n4-Buscar por todas as corridas de um motorista: ");
-		corridasDoMotorista.forEach(corridaDoMotorista -> System.out.println("Corrida " + corridaDoMotorista.getCodigo() + ", Destino: " + corrida.getDestino()));
+		corridasDoMotorista.forEach(item -> System.out.println("Corrida " + item.getCodigo() + ", Destino: " + item.getDestino()));
 	
 		//5-Contar a quantidade de corridas de um passageiro: 
 		int codigoPassageiro = 1;
 		long qtdeDeCorridaPorPassageiro = corridaDAO.qtdeCorridaPorPasseiro(codigoPassageiro);
 		System.out.println("\n5-Contar a quantidade de corridas de um passageiro: ");
 		System.out.println("Código do passageiro: "+ codigoPassageiro + ", quantidade de corridas: " + qtdeDeCorridaPorPassageiro);
+		
+		//6-Buscar por todas as corridas por parte do nome do passageiro
+		
+		System.out.println("\n6-Buscar por todas as corridas por parte do nome do passageiro");
+		String nomeDoPassageiro = "Pass";
+		List<Corrida> buscarPorNomePassageiro = corridaDAO.buscarPorParteDoNomeDoPassageiro(nomeDoPassageiro);
+		buscarPorNomePassageiro.forEach(item -> System.out.println("Nome: " + nomeDoPassageiro + ", código da corrida: " + item.getCodigo()));
 		em.close();
 		factory.close();
 	}
