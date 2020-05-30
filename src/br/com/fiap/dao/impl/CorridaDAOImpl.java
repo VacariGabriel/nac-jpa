@@ -43,6 +43,7 @@ public class CorridaDAOImpl extends GenericDAOImpl<Corrida, Integer> implements 
 	public List<Corrida> buscarPorParteDoNomeDoPassageiro(String nome) {
 		return em.createQuery("from Corrida c where passageiro.nome like :nome", Corrida.class)
 				.setParameter("nome", "%"+nome+"%")
+				.setMaxResults(40)
 				.getResultList();
 	}
 }
