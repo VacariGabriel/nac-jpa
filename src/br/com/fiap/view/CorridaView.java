@@ -60,7 +60,7 @@ public class CorridaView {
 		int codigoPassageiro = 1;
 		long qtdeDeCorridaPorPassageiro = corridaDAO.qtdeCorridaPorPasseiro(codigoPassageiro);
 		System.out.println("\n5-Contar a quantidade de corridas de um passageiro: ");
-		System.out.println("Código do passageiro: "+ codigoPassageiro + ", quantidade: " + qtdeDeCorridaPorPassageiro);
+		System.out.println("Código do passageiro: "+ codigoPassageiro + ", quantidade de corridas: " + qtdeDeCorridaPorPassageiro);
 		em.close();
 		factory.close();
 	}
