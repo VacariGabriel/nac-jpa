@@ -18,6 +18,7 @@ public class VeiculoView {
 				
 		VeiculoDAO veiculoDAO = new VeiculoDAOImpl(em);
 
+		//3. Buscar por todos os veículos por valor mínimo do ano:
 		try {
 			Veiculo veiculo = new Veiculo("ABC-1010", "Azul", 2010);
 			Veiculo veiculo2 = new Veiculo("ABC-1020", "Azul", 2013);

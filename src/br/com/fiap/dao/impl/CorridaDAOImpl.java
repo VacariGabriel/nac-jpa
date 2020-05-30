@@ -31,4 +31,11 @@ public class CorridaDAOImpl extends GenericDAOImpl<Corrida, Integer> implements 
 		query.setParameter("m", motorista);
 		return query.getResultList();
 	}
+
+	@Override
+	public long qtdeCorridaPorPasseiro(int codigo) {
+		return em.createQuery("Select COUNT(c) from Corrida c where passageiro.codigo = :codigo", Long.class)
+				.setParameter("codigo", codigo)
+				.getSingleResult();
+	}
 }

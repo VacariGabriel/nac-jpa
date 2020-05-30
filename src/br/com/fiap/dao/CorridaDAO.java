@@ -11,4 +11,6 @@ public interface CorridaDAO extends GenericDAO<Corrida, Integer> {
 	
 	List<Corrida> buscarPorTodasCorridasDoMotorista(Motorista motorista);
 
+	long qtdeCorridaPorPasseiro(int codigo);
+
 }
