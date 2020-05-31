@@ -52,7 +52,13 @@ public class MotoristaView {
 		System.out.println(("1. Buscar os motoristas por parte do nome"));
 		String parteDoNome = "Luc";
 		List<Motorista> motoristas = motoristaDAO.buscaMotoristaPorParteNome(parteDoNome);
-		motoristas.forEach(moto -> System.out.println("Parte do nome: " + parteDoNome + " Nome: " + moto.getNome()));
+		motoristas.forEach(moto -> System.out.println("Parte do nome: " + parteDoNome + "\nNome: " + moto.getNome()));
+		
+		//4-Buscar por todas as corridas de um motorista
+		List<Corrida> corridasDoMotorista = corridaDAO.buscarPorTodasCorridasDoMotorista(motorista);
+		
+		System.out.println("\n4-Buscar por todas as corridas de um motorista: ");
+		corridasDoMotorista.forEach(item -> System.out.println("Corrida " + item.getCodigo() + ", Destino: " + item.getDestino()));
 		
 		//8. Contar a quantidade de corridas de um motorista por um determinado período de datas
 		Calendar inicio = new GregorianCalendar(2020, 4, 20);

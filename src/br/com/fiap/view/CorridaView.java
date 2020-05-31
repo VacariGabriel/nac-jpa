@@ -54,12 +54,6 @@ public class CorridaView {
 		System.out.println("2-Buscar por todas as corridas por um intervalo de datas: ");
 		corridas.forEach(item -> System.out.println("Origem: "+item.getOrigem()));
 		
-		//4-Buscar por todas as corridas de um motorista
-		List<Corrida> corridasDoMotorista = corridaDAO.buscarPorTodasCorridasDoMotorista(motorista);
-		
-		System.out.println("\n4-Buscar por todas as corridas de um motorista: ");
-		corridasDoMotorista.forEach(item -> System.out.println("Corrida " + item.getCodigo() + ", Destino: " + item.getDestino()));
-	
 		//5-Contar a quantidade de corridas de um passageiro: 
 		int codigoPassageiro = 1;
 		long qtdeDeCorridaPorPassageiro = corridaDAO.qtdeCorridaPorPasseiro(codigoPassageiro);
@@ -73,5 +67,7 @@ public class CorridaView {
 		buscarPorNomePassageiro.forEach(item -> System.out.println("Nome: " + nomeDoPassageiro + ", código da corrida: " + item.getCodigo()));
 		em.close();
 		factory.close();
+		
+		//10. Buscar pelas corridas realizadas entre um passageiro e motorista específicos:
 	}
 }
