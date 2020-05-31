@@ -46,4 +46,12 @@ public class CorridaDAOImpl extends GenericDAOImpl<Corrida, Integer> implements 
 				.setMaxResults(40)
 				.getResultList();
 	}
+
+	@Override
+	public long ContarCorridasDeUmMotoristaPorData(int codigoMotorista, Calendar inicio, Calendar fim) {
+		return em.createQuery("Select Count(motorista) from Corrida c where c.data between :i and :f", Long.class)
+		.setParameter("i", inicio)
+		.setParameter("f", fim)
+		.getSingleResult();
+	}
 }

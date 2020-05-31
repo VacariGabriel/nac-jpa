@@ -15,4 +15,5 @@ public interface CorridaDAO extends GenericDAO<Corrida, Integer> {
 
 	List<Corrida> buscarPorParteDoNomeDoPassageiro(String nome);
 
+	long ContarCorridasDeUmMotoristaPorData(int codigoMotorista, Calendar inicio, Calendar fim);
 }

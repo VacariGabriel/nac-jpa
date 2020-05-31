@@ -11,4 +11,11 @@ public class PagamentoDAOImpl extends GenericDAOImpl<Pagamento, Integer> impleme
 		super(em);
 	}
 
+	@Override
+	public float somarPagamentosDeUmPassageiro(int codigoPassageiro) {
+		return em.createQuery("Select SUM(pagamento.valor) from Corrida c where passageiro.codigo = :codigo", Float.class)
+				.setParameter("codigo", codigoPassageiro)
+				.getSingleResult();
+	}
+
 }
