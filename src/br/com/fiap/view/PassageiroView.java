@@ -53,6 +53,8 @@ public class PassageiroView {
 		List<Corrida> maioresValores = corridaDAO.MaioresValoresDeCorridaPorPassageiro(codigoPassageiro);
 		maioresValores.forEach(item -> System.out.println("Corrida valor: " + item.getValor()));
 		
+		em.close();
+		factory.close();
 	}
 	
 

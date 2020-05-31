@@ -69,6 +69,7 @@ public class MotoristaView {
 		long qtdeCorrida = corridaDAO.ContarCorridasDeUmMotoristaPorData(20, inicio, fim);
 		System.out.println("Código do motorista: " + codMotorista );
 		System.out.println("qtde de corrida no periodo das datas passadas por parametro: " + qtdeCorrida);
+		
 		em.close();
 		factory.close();
 	}
