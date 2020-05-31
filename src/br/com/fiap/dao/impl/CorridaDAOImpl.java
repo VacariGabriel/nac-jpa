@@ -54,4 +54,12 @@ public class CorridaDAOImpl extends GenericDAOImpl<Corrida, Integer> implements 
 		.setParameter("f", fim)
 		.getSingleResult();
 	}
+
+	@Override
+	public List<Corrida> MaioresValoresDeCorridaPorPassageiro(int codigoPassageiro) {
+		return em.createQuery("from Corrida c where passageiro.codigo = :codigo ORDER BY valor desc", Corrida.class)
+				.setParameter("codigo", codigoPassageiro)
+				.setMaxResults(10)
+				.getResultList();
+	}
 }
