@@ -65,9 +65,15 @@ public class CorridaView {
 		String nomeDoPassageiro = "Pass";
 		List<Corrida> buscarPorNomePassageiro = corridaDAO.buscarPorParteDoNomeDoPassageiro(nomeDoPassageiro);
 		buscarPorNomePassageiro.forEach(item -> System.out.println("Nome: " + nomeDoPassageiro + ", código da corrida: " + item.getCodigo()));
-		em.close();
-		factory.close();
 		
 		//10. Buscar pelas corridas realizadas entre um passageiro e motorista específicos:
-	}
+		long codMotorista = 20;
+		
+		System.out.println("\n10. Buscar pelas corridas realizadas entre um passageiro e motorista específicos");
+		List<Corrida> corridaPorPassEMot = corridaDAO.BuscarCorridaPorPassageiroEMotorista(codigoPassageiro, codMotorista);
+		System.out.println("Cod passageiro: " + codigoPassageiro + ", cod motorista: " + codMotorista);
+		corridaPorPassEMot.forEach(item -> System.out.println("Corrida origem: " + item.getOrigem()));
+		
+		em.close();
+		factory.close();	}
 }
