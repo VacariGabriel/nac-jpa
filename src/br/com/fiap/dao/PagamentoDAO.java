@@ -4,5 +4,4 @@ import br.com.fiap.entity.Pagamento;
 
 public interface PagamentoDAO extends GenericDAO<Pagamento, Integer>{
 
-	float somarPagamentosDeUmPassageiro(int codigoPassageiro);
 }

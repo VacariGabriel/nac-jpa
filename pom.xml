@@ -27,7 +27,7 @@
 			<artifactId>jdbc-driver</artifactId>
 			<version>12</version>
 			<scope>system</scope>
-			<systemPath>/home/patricia/Documents/Enterprise Application Development/ojdbc8.jar</systemPath>
+			<systemPath>/home/gabriel-vacari/gabriel/FIAP/enterprise/ojdbc8.jar</systemPath>
 		</dependency>
 		<dependency>
     		<groupId>javax.xml.bind</groupId>
